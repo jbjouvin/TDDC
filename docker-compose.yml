@@ -17,7 +17,7 @@ services:
     container_name: users-service
     build: .
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/app # If working on docker machine on linux dont do this ! only win or osx
     ports:
       - 5001:5000 # expose ports - HOST:CONTAINER
     environment:
