@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jbjouvin/TDDC.svg?branch=master)](https://travis-ci.org/jbjouvin/TDDC)
+
 # Commandes Utiles
 
 ## **for docker-machine on aws**
