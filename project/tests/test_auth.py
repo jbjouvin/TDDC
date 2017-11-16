@@ -197,7 +197,7 @@ class TestAuthBlueprint(BaseTestCase):
                 content_type='application/json'
             )
             # invalid token logout
-            time.sleep(1)
+            time.sleep(4)
             response = self.client.get(
                 '/auth/logout',
                 headers=dict(

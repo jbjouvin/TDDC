@@ -46,7 +46,7 @@ class TestTestingConfig(TestCase):
         )
         self.assertTrue(app.config['BCRYPT_LOG_ROUNDS'] == 4)
         self.assertTrue(app.config['TOKEN_EXPIRATION_DAYS'] == 0)
-        self.assertTrue(app.config['TOKEN_EXPIRATION_SECONDS'] == 0.1)
+        self.assertTrue(app.config['TOKEN_EXPIRATION_SECONDS'] == 3)
 
 
 class TestProductionConfig(TestCase):
