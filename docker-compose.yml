@@ -6,7 +6,7 @@ services:
     container_name: users-db
     build: ./project/db
     ports:
-        - 5435:5432  # expose ports - HOST:CONTAINER
+      - 5435:5432  # expose ports - HOST:CONTAINER
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
