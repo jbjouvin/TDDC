@@ -16,8 +16,11 @@ class TestUserModel(BaseTestCase):
         self.assertTrue(user.id)
         self.assertEqual(user.username, 'justatest')
         self.assertEqual(user.email, 'test@test.com')
-        # self.assertEqual(bcrypt.generate_password_hash(
-        #     user.password).decode(), bcrypt.generate_password_hash('test').decode())
+        # a revoir...
+        # nopassword = bcrypt.generate_password_hash(' ').decode()
+        # self.assertNotEqual(bcrypt.generate_password_hash(
+        #     user.password).decode(), nopassword)
+
         self.assertTrue(user.active)
         self.assertTrue(user.created_at)
 
@@ -45,3 +48,14 @@ class TestUserModel(BaseTestCase):
         user_one = add_user('justatest', 'test@test.com', 'test')
         user_two = add_user('justatest2', 'test@test2.com', 'test2')
         self.assertNotEqual(user_one.password, user_two.password)
+
+    def test_encode_auth_token(self):
+        user = add_user('justatest', 'test@test.com', 'test')
+        auth_token = user.encode_auth_token(user.id)
+        self.assertTrue(isinstance(auth_token, bytes))
+
+    def test_decode_auth_token(self):
+        user = add_user('justatest', 'test@test.com', 'test')
+        auth_token = user.encode_auth_token(user.id)
+        self.assertTrue(isinstance(auth_token, bytes))
+        self.assertTrue(User.decode_auth_token(auth_token), user.id)
