@@ -5,6 +5,7 @@ import datetime
 
 from project import db
 from project import db, bcrypt
+from flask import current_app
 
 
 class User(db.Model):
@@ -16,10 +17,11 @@ class User(db.Model):
     active = db.Column(db.Boolean(), default=True, nullable=False)
     admin = db.Column(db.Boolean, default=False, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
-    
 
     def __init__(self, username, email, password, created_at=datetime.datetime.utcnow()):
         self.username = username
         self.email = email
-        self.password = bcrypt.generate_password_hash(password).decode()
+        self.password = bcrypt.generate_password_hash(
+            password, current_app.config.get('BCRYPT_LOG_ROUNDS')
+        ).decode()
         self.created_at = created_at
