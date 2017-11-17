@@ -16,13 +16,14 @@ class TestUserModel(BaseTestCase):
         self.assertTrue(user.id)
         self.assertEqual(user.username, 'justatest')
         self.assertEqual(user.email, 'test@test.com')
+        self.assertTrue(user.password)
         # a revoir...
         # nopassword = bcrypt.generate_password_hash(' ').decode()
         # self.assertNotEqual(bcrypt.generate_password_hash(
         #     user.password).decode(), nopassword)
-
         self.assertTrue(user.active)
         self.assertTrue(user.created_at)
+        self.assertTrue(user.admin == False)
 
     def test_add_user_duplicate_username(self):
         add_user('justatest', 'test@test.com', 'test')
