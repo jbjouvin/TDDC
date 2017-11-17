@@ -18,7 +18,7 @@ class TestDevelopmentConfig(TestCase):
         return app
 
     def test_app_is_development(self):
-                self.assertTrue(
+        self.assertTrue(
             app.config['SECRET_KEY'] ==
             os.environ.get('SECRET_KEY')
         )
@@ -39,7 +39,7 @@ class TestTestingConfig(TestCase):
         return app
 
     def test_app_is_testing(self):
-                self.assertTrue(
+        self.assertTrue(
             app.config['SECRET_KEY'] ==
             os.environ.get('SECRET_KEY')
         )
