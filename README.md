@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jbjouvin/TDDC.svg?branch=master)](https://travis-ci.org/jbjouvin/TDDC)
+[![Build Status](https://travis-ci.org/jbjouvin/usersTDDC.svg?branch=master)](https://travis-ci.org/jbjouvin/TDDC)
 
 ## Users-service
 
