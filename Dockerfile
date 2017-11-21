@@ -12,5 +12,6 @@ ADD . /usr/src/app
 RUN pip install -r requirements.txt
 
 # run server
-CMD ["python", "manage.py", "runserver", "-h", "0.0.0.0"]
+CMD ["./entrypoint.sh"]
+# CMD ["python", "manage.py", "runserver", "-h", "0.0.0.0"]
 # CMD ["ping", "www.google.com"]
