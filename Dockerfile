@@ -11,6 +11,9 @@ ADD . /usr/src/app
 # install requirements
 RUN pip install -r requirements.txt
 
+RUN apt update
+RUN apt install -y netcat
+
 # run server
 CMD ["./entrypoint.sh"]
 # CMD ["python", "manage.py", "runserver", "-h", "0.0.0.0"]
