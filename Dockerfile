@@ -11,8 +11,8 @@ ADD . /usr/src/app
 # install requirements
 RUN pip install -r requirements.txt
 
-RUN apt update
-RUN apt install -y netcat
+RUN yum update
+RUN yum install -y netcat
 
 # run server
 CMD ["./entrypoint.sh"]
